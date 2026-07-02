@@ -1,26 +1,27 @@
 ---
 titulo: ImpactSeed
-resumo: Plataforma web que liga startups de impacto a investidores — perfis, candidaturas e comunicação em tempo real.
+resumo: Plataforma web que liga startups de impacto a investidores — perfis, filtragem por ODS e validação administrativa.
 stack: [C# 12, .NET 8, ASP.NET Core MVC, Entity Framework Core, SignalR, Azure]
 ordem: 1
 destaque: true
-estado: Em desenvolvimento · PAP
-# link: https://...        ← descomenta e preenche quando estiver online
+estado: Demo online · PAP
+link: https://impactseed.pt/
 # repo: https://github.com/...
 ---
 
-O ImpactSeed é o meu projeto principal — a minha Prova de Aptidão Profissional (PAP). É uma plataforma web que liga startups de impacto social e ambiental a investidores que procuram mais do que retorno financeiro.
+O ImpactSeed é o meu projeto principal — a minha Prova de Aptidão Profissional (PAP). É uma plataforma web que liga startups de impacto social e ambiental a investidores que procuram mais do que retorno financeiro. Está online em domínio próprio, em versão demonstrativa.
 
 ## O problema
 
-As startups de impacto têm dificuldade em chegar a investidores alinhados com a sua missão; os investidores, por sua vez, não têm uma forma estruturada de descobrir e acompanhar estes projetos. O ImpactSeed põe os dois lados a falar na mesma plataforma.
+As startups de impacto têm dificuldade em chegar a investidores alinhados com a sua missão; os investidores, por sua vez, não têm uma forma estruturada de descobrir e acompanhar estes projetos. O ImpactSeed aproxima os dois lados de forma prática, direta e transparente.
 
 ## O que faz
 
-- **Perfis de startups** com missão, métricas de impacto e fase de investimento _(placeholder: ajusta às funcionalidades reais)_
-- **Perfis de investidores** com áreas de interesse e critérios de investimento
+- **Apresentação de projetos** — as startups partilham os seus projetos, objetivos e impacto
+- **Filtragem inteligente** — os investidores filtram oportunidades por área, estágio ou alinhamento com os Objetivos de Desenvolvimento Sustentável (Agenda 2030)
+- **Validação administrativa** — administradores garantem a qualidade e veracidade da informação na plataforma
+- **Barreira de entrada baixa** — investimentos a partir de 10€
 - **Comunicação em tempo real** entre startups e investidores, com SignalR
-- _(placeholder: matching? candidaturas? dashboards? — acrescenta o que existir)_
 
 ## Decisões técnicas
 

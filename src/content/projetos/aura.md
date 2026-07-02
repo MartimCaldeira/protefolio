@@ -1,11 +1,10 @@
 ---
 titulo: Aura
-resumo: Player de música tipo Spotify com estética escura e dourada, painel de administração e gestão completa de faixas.
+resumo: Player de música em streaming com estética escura e dourada, biblioteca de faixas e painel de administração.
 stack: [ASP.NET Core MVC, Entity Framework Core, JavaScript, HTML Audio]
 # ↑ TODO: confirma a stack — é uma suposição
 ordem: 3
-# estado:
-# link:
+link: https://aura-nine-alpha.vercel.app/
 # repo:
 ---
 
@@ -13,9 +12,9 @@ O Aura é um player de música web inspirado no Spotify, com identidade visual p
 
 ## O que faz
 
-- **Reprodução de faixas** com fila e controlo total do player _(placeholder: shuffle? repetição? playlists?)_
+- **Biblioteca musical** — o utilizador navega e seleciona faixas para reprodução
+- **«A tocar agora»** — player com barra de progresso e controlo da faixa em reprodução
 - **Painel de administração** para gerir o catálogo — upload de faixas, capas, artistas e álbuns
-- **Gestão de faixas** com pesquisa e organização do catálogo
 
 ## Decisões técnicas
 
