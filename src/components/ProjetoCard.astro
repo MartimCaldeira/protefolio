@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projeto: CollectionEntry<'projetos'>;
+}
+
+const { projeto } = Astro.props;
+const { titulo, resumo, stack, destaque, estado } = projeto.data;
+---
+
+<a class:list={['cartao', { destaque }]} href={`/projetos/${projeto.id}/`}>
+  <div class="topo">
+    <h3>{titulo}</h3>
+    {destaque && <span class="etiqueta">Projeto principal</span>}
+    {!destaque && estado && <span class="etiqueta">{estado}</span>}
+  </div>
+  <p class="resumo">{resumo}</p>
+  <ul class="chips">
+    {stack.map((tec) => <li class="chip">{tec}</li>)}
+  </ul>
+  <span class="ver">Ver detalhe <span class="seta" aria-hidden="true">→</span></span>
+</a>
+
+<style>
+  .cartao {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    background: var(--bg-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    color: var(--texto);
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+
+  .cartao:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212, 170, 94, 0.45);
+    color: var(--texto);
+  }
+
+  .cartao.destaque {
+    grid-column: 1 / -1;
+    background:
+      linear-gradient(135deg, var(--ouro-suave), transparent 45%),
+      var(--bg-cartao);
+  }
+
+  .topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .resumo {
+    color: var(--texto-suave);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .ver {
+    margin-top: auto;
+    font-family: var(--font-titulos);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ouro);
+  }
+
+  .seta {
+    display: inline-block;
+    transition: transform 0.18s ease;
+  }
+
+  .cartao:hover .seta {
+    transform: translateX(4px);
+  }
+</style>

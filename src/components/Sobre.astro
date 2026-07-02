@@ -1,0 +1,85 @@
+---
+const tecnologias = [
+  'C# 12',
+  '.NET 8',
+  'ASP.NET Core MVC',
+  'Entity Framework Core',
+  'SignalR',
+  'SQL Server',
+  'Azure',
+  'HTML/CSS',
+  'JavaScript',
+  'Git',
+  'Claude Code',
+];
+---
+
+<section id="sobre">
+  <div class="container">
+    <p class="overline">Sobre mim</p>
+    <h2>Resultado primeiro, tecnologia a seguir.</h2>
+    <div class="colunas">
+      <div class="texto">
+        <p>
+          Estou no último ano do curso de Técnico de Gestão e Programação de
+          Sistemas Informáticos (TGPSI). O que me define não é o curso — é a
+          forma de trabalhar: pego num problema real, defino o resultado e as
+          restrições, e só depois escolho a tecnologia.
+        </p>
+        <p>
+          O meu território principal é o ecossistema .NET: C#, ASP.NET Core
+          MVC e Entity Framework Core. Para prototipagem rápida trabalho com
+          o Claude Code — defino o que quero, delego decisões de implementação
+          e valido o resultado. É assim que passo de ideia a ferramenta
+          funcional em dias, não meses.
+        </p>
+        <p>
+          Estou baseado na zona de Lisboa e disponível para estágios e
+          projetos.
+        </p>
+      </div>
+      <div class="competencias">
+        <h3>Tecnologias</h3>
+        <ul class="chips">
+          {tecnologias.map((tec) => <li class="chip">{tec}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--borda);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 2rem;
+  }
+
+  .colunas {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .texto p {
+    color: var(--texto-suave);
+  }
+
+  .competencias h3 {
+    font-size: 1rem;
+    color: var(--texto);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .colunas {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

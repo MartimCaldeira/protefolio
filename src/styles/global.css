@@ -1,0 +1,233 @@
+/* =====================================================
+   Design tokens — a estética vive toda aqui
+   ===================================================== */
+:root {
+  --bg: #0c0c10;
+  --bg-cartao: #12121a;
+  --bg-realce: #17171f;
+  --borda: rgba(233, 230, 222, 0.09);
+  --texto: #e9e6de;
+  --texto-suave: #a39e92;
+  --ouro: #d4aa5e;
+  --ouro-claro: #e6c684;
+  --ouro-suave: rgba(212, 170, 94, 0.1);
+
+  --font-titulos: 'Space Grotesk Variable', 'Segoe UI', sans-serif;
+  --font-corpo: 'Inter Variable', 'Segoe UI', sans-serif;
+
+  --largura-max: 1080px;
+  --raio: 14px;
+}
+
+/* =====================================================
+   Base
+   ===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--font-corpo);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titulos);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--ouro);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--ouro-claro);
+}
+
+::selection {
+  background: var(--ouro);
+  color: #17130a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =====================================================
+   Utilitários partilhados
+   ===================================================== */
+.container {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.overline {
+  font-family: var(--font-titulos);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin: 0 0 1rem;
+}
+
+.ouro {
+  color: var(--ouro);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--bg-realce);
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--ouro-suave);
+  color: var(--ouro);
+  font-family: var(--font-titulos);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primario {
+  background: var(--ouro);
+  color: #17130a;
+}
+
+.btn-primario:hover {
+  background: var(--ouro-claro);
+  color: #17130a;
+  transform: translateY(-1px);
+}
+
+.btn-fantasma {
+  border: 1px solid var(--borda);
+  color: var(--texto);
+}
+
+.btn-fantasma:hover {
+  border-color: var(--ouro);
+  color: var(--ouro);
+}
+
+/* =====================================================
+   Prosa — corpo Markdown das páginas de projeto
+   ===================================================== */
+.prosa {
+  color: var(--texto);
+}
+
+.prosa h2 {
+  font-size: 1.4rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.prosa h3 {
+  font-size: 1.1rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.prosa p,
+.prosa li {
+  color: var(--texto-suave);
+}
+
+.prosa strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.prosa em {
+  color: var(--texto-suave);
+}
+
+.prosa ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.prosa li {
+  margin-bottom: 0.4rem;
+}
+
+.prosa a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prosa blockquote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--ouro);
+  background: var(--bg-cartao);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+
+.prosa code {
+  background: var(--bg-realce);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}

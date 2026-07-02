@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Sobre from '../components/Sobre.astro';
+import ProjetoCard from '../components/ProjetoCard.astro';
+import Contacto from '../components/Contacto.astro';
+
+const projetos = (await getCollection('projetos')).sort(
+  (a, b) => a.data.ordem - b.data.ordem
+);
+---
+
+<Base>
+  <Nav />
+  <main>
+    <Hero />
+    <Sobre />
+    <section id="projetos">
+      <div class="container">
+        <p class="overline">Projetos</p>
+        <h2>Coisas que construí a sério.</h2>
+        <p class="intro">
+          Do projeto de PAP a ferramentas que resolvem problemas concretos —
+          cada um com decisões técnicas próprias.
+        </p>
+        <div class="grelha">
+          {projetos.map((projeto) => <ProjetoCard projeto={projeto} />)}
+        </div>
+      </div>
+    </section>
+    <Contacto />
+  </main>
+</Base>
+
+<style>
+  #projetos {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--borda);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  }
+
+  .intro {
+    color: var(--texto-suave);
+    max-width: 56ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .grelha {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 720px) {
+    .grelha {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

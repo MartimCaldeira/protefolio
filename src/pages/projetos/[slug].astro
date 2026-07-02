@@ -1,0 +1,134 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+
+export async function getStaticPaths() {
+  const projetos = await getCollection('projetos');
+  return projetos.map((projeto) => ({
+    params: { slug: projeto.id },
+    props: { projeto },
+  }));
+}
+
+const { projeto } = Astro.props;
+const { Content } = await render(projeto);
+const { titulo, resumo, stack, estado, link, repo } = projeto.data;
+const anoAtual = new Date().getFullYear();
+---
+
+<Base titulo={`${titulo} — Martim Caldeira`} descricao={resumo}>
+  <Nav />
+  <main class="container">
+    <a class="voltar" href="/#projetos">← Todos os projetos</a>
+    <header>
+      <div class="topo">
+        <h1>{titulo}</h1>
+        {estado && <span class="etiqueta">{estado}</span>}
+      </div>
+      <p class="resumo">{resumo}</p>
+      <ul class="chips">
+        {stack.map((tec) => <li class="chip">{tec}</li>)}
+      </ul>
+      {
+        (link || repo) && (
+          <div class="ligacoes">
+            {link && (
+              <a
+                class="btn btn-primario"
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver online
+              </a>
+            )}
+            {repo && (
+              <a
+                class="btn btn-fantasma"
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Código no GitHub
+              </a>
+            )}
+          </div>
+        )
+      }
+    </header>
+    <article class="prosa">
+      <Content />
+    </article>
+  </main>
+  <footer>
+    <div class="container">
+      <p>© {anoAtual} Martim Caldeira · Lisboa</p>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  main {
+    max-width: 780px;
+    padding-block: 3.5rem 5rem;
+  }
+
+  .voltar {
+    display: inline-block;
+    font-family: var(--font-titulos);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    margin-bottom: 2.5rem;
+  }
+
+  .voltar:hover {
+    color: var(--ouro);
+  }
+
+  .topo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0;
+  }
+
+  .resumo {
+    font-size: 1.15rem;
+    color: var(--texto-suave);
+    max-width: 60ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .ligacoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+  }
+
+  header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--borda);
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--borda);
+    padding-block: 1.75rem;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+</style>

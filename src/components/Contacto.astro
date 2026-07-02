@@ -1,0 +1,76 @@
+---
+const anoAtual = new Date().getFullYear();
+---
+
+<section id="contacto">
+  <div class="container">
+    <p class="overline">Contacto</p>
+    <h2>Vamos falar?</h2>
+    <p class="texto">
+      Estou disponível para estágios, projetos e boas conversas sobre .NET e
+      ferramentas web. A forma mais rápida de me apanhar é por email.
+    </p>
+    <div class="acoes">
+      <a class="btn btn-primario" href="mailto:caldeirinha08@gmail.com">
+        caldeirinha08@gmail.com
+      </a>
+      <!-- TODO: substitui pelos teus perfis reais -->
+      <a
+        class="btn btn-fantasma"
+        href="https://github.com/"
+        target="_blank"
+        rel="noopener noreferrer">GitHub</a
+      >
+      <a
+        class="btn btn-fantasma"
+        href="https://www.linkedin.com/"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© {anoAtual} Martim Caldeira · Lisboa · Construído com Astro</p>
+  </div>
+</footer>
+
+<style>
+  section {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  }
+
+  .texto {
+    max-width: 52ch;
+    margin-inline: auto;
+    color: var(--texto-suave);
+    margin-bottom: 2.25rem;
+  }
+
+  .acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--borda);
+    padding-block: 1.75rem;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+</style>
