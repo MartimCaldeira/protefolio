@@ -80,6 +80,5 @@ Para mudar as cores do tema, edita as variáveis no topo de [src/styles/global.c
 
 ## Por preencher (TODOs)
 
-- Links do **GitHub** e **LinkedIn** em [src/components/Contacto.astro](src/components/Contacto.astro)
-- Os _(placeholders)_ nos quatro `.md` em `src/content/projetos/`
+- Os _(placeholders)_ e os `# TODO` de stack nos `.md` em `src/content/projetos/`
 - Capturas de ecrã dos projetos em `public/projetos/`
