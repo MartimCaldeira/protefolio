@@ -4,13 +4,43 @@ const tecnologias = [
   '.NET 8',
   'ASP.NET Core MVC',
   'Entity Framework Core',
-  'SignalR',
+  'SQL',
   'SQL Server',
+  'SignalR',
   'Azure',
+  'Análise de Dados',
   'HTML/CSS',
   'JavaScript',
+  'Visual Studio',
   'Git',
   'Claude Code',
+];
+
+const percurso = [
+  {
+    quando: '2023 — presente',
+    titulo: 'TGPSI · Escola Profissional de Tecnologia Digital',
+    texto:
+      'Curso técnico de Gestão e Programação de Sistemas Informáticos, em Lisboa. Bases de dados, lógica de sistemas e desenvolvimento web.',
+  },
+  {
+    quando: 'jan — fev 2025',
+    titulo: 'Programador de base de dados · Real Life Technologies',
+    texto:
+      'Estágio (remoto): manipulação de bases de dados e SQL em contexto real de empresa.',
+  },
+  {
+    quando: 'jun — set 2025',
+    titulo: 'Restaurante Malagueta · Oeiras',
+    texto:
+      'Atendimento ao cliente em ritmo acelerado, trabalho em equipa multicultural e gestão de reclamações — e aproveitei para lhes construir o site.',
+  },
+  {
+    quando: 'a seguir',
+    titulo: 'CTeSP na área de Gestão',
+    texto:
+      'O próximo passo: juntar tecnologia e gestão. Programar ensinou-me lógica; a gestão vai ensinar-me estratégia.',
+  },
 ];
 ---
 
@@ -30,12 +60,14 @@ const tecnologias = [
           O meu território principal é o ecossistema .NET: C#, ASP.NET Core
           MVC e Entity Framework Core. Para prototipagem rápida trabalho com
           o Claude Code — defino o que quero, delego decisões de implementação
-          e valido o resultado. É assim que passo de ideia a ferramenta
-          funcional em dias, não meses.
+          e valido o resultado. E já testei isto fora da escola: num estágio
+          como programador de base de dados e a construir sites para negócios
+          reais.
         </p>
         <p>
-          Estou baseado na zona de Lisboa e disponível para estágios e
-          projetos.
+          Acredito em perfis híbridos — o melhor código do mundo precisa de
+          boa gestão para ter sucesso. Estou baseado na zona de Lisboa e
+          disponível para estágios e projetos.
         </p>
       </div>
       <div class="competencias">
@@ -44,6 +76,20 @@ const tecnologias = [
           {tecnologias.map((tec) => <li class="chip">{tec}</li>)}
         </ul>
       </div>
+    </div>
+    <div class="percurso">
+      <h3>Percurso</h3>
+      <ol>
+        {
+          percurso.map((etapa) => (
+            <li>
+              <span class="quando">{etapa.quando}</span>
+              <strong>{etapa.titulo}</strong>
+              <p>{etapa.texto}</p>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </div>
 </section>
@@ -70,10 +116,66 @@ const tecnologias = [
     color: var(--texto-suave);
   }
 
-  .competencias h3 {
+  .competencias h3,
+  .percurso h3 {
     font-size: 1rem;
     color: var(--texto);
     margin-bottom: 1rem;
+  }
+
+  .percurso {
+    margin-top: 3.5rem;
+  }
+
+  .percurso ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--borda);
+  }
+
+  .percurso li {
+    position: relative;
+    padding: 0 0 1.75rem 1.75rem;
+  }
+
+  .percurso li:last-child {
+    padding-bottom: 0;
+  }
+
+  .percurso li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ouro);
+  }
+
+  .quando {
+    display: block;
+    font-family: var(--font-titulos);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 0.25rem;
+  }
+
+  .percurso strong {
+    display: block;
+    font-family: var(--font-titulos);
+    font-size: 1.02rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .percurso p {
+    color: var(--texto-suave);
+    margin: 0;
+    max-width: 68ch;
   }
 
   @media (max-width: 800px) {

@@ -14,6 +14,24 @@ const {
 } = Astro.props;
 
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+
+const dadosEstruturados = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Martim Caldeira',
+  url: Astro.site?.toString(),
+  jobTitle: 'Estudante de Gestão e Programação de Sistemas Informáticos',
+  knowsAbout: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'SQL'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lisboa',
+    addressCountry: 'PT',
+  },
+  sameAs: [
+    'https://github.com/MartimCaldeira',
+    'https://www.linkedin.com/in/martim-caldeira/',
+  ],
+});
 ---
 
 <!doctype html>
@@ -36,6 +54,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.u
     <meta property="og:locale" content="pt_PT" />
     <meta property="og:site_name" content="Martim Caldeira" />
     <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={dadosEstruturados} />
   </head>
   <body>
     <slot />
